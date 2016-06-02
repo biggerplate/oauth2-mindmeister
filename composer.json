@@ -1,5 +1,5 @@
 {
-	"name": "maslosoft/oauth2-mindmeister",
+	"name": "biggerplate/oauth2-mindmeister",
 	"description": "MindMeister OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
 	"license": "MIT",
 	"authors": [{
