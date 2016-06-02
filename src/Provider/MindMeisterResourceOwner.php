@@ -13,7 +13,7 @@ namespace League\OAuth2\Client\Provider;
  *
  * @author Piotr Maselkowski <pmaselkowski at gmail.com>
  */
-class TwitterResourceOwner implements ResourceOwnerInterface
+class MindMeisterResourceOwner implements ResourceOwnerInterface
 {
 
 	/**

@@ -12,21 +12,30 @@ use League\OAuth2\Client\Token\AccessToken;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * Twitter
+ * MindMeister
  *
- * @author Piotr Maselkowski <pmaselkowski at gmail.com>
+ * @author Robert Pitt <rob@biggerplate.com>
  */
-class Twitter extends AbstractProvider
+class MindMeister extends AbstractProvider
 {
-
+	/**
+	 * Use the Authorization Trait
+	 */
 	use \League\OAuth2\Client\Tool\BearerAuthorizationTrait;
 
-	public $domain = 'https://twitter.com';
-	public $apiDomain = 'https://api.twitter.com/';
+	/**
+	 * MindMeister root domain
+	 */
+	public $domain = 'https://www.mindmeister.com/';
+
+	/**
+	 * API Domain 
+	 */
+	public $apiDomain = 'https://www.mindmeister.com/api/v2/';
 
 	public function getBaseAuthorizationUrl()
 	{
-		return $this->apiDomain . 'oauth2/token';
+		return $this->domain . 'oauth2/authorize';
 	}
 
 	/**
@@ -37,7 +46,7 @@ class Twitter extends AbstractProvider
 	 */
 	public function getBaseAccessTokenUrl(array $params)
 	{
-		return $this->apiDomain . 'oauth2/token';
+		return $this->domain . 'oauth2/token';
 	}
 
 	/**
@@ -52,7 +61,7 @@ class Twitter extends AbstractProvider
 	 */
 	public function getResourceOwnerDetailsUrl(AccessToken $token)
 	{
-		return $this->apiDomain . 'account/verify_credentials';
+		return $this->apiDomain . 'users/me';
 	}
 
 	/**
@@ -89,15 +98,15 @@ class Twitter extends AbstractProvider
 					$message .= $error['message'];
 				}
 			}
-			throw new IdentityProviderException(
-			$message ? : $response->getReasonPhrase(), $response->getStatusCode(), $response
-			);
+
+
+			throw new IdentityProviderException( $message ? : $response->getReasonPhrase(), $response->getStatusCode(), $response);
 		}
 	}
 
 	protected function createResourceOwner(array $response, AccessToken $token)
 	{
-		return (new TwitterResourceOwner($response))->setDomain($this->domain);
+		return (new MindMeisterResourceOwner($response));
 	}
 
 }
