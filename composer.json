@@ -1,21 +1,19 @@
 {
-	"name": "maslosoft/oauth2-twitter",
-	"description": "Twitter OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
+	"name": "maslosoft/oauth2-mindmeister",
+	"description": "MindMeister OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
 	"license": "MIT",
-	"authors": [
-		{
-			"name": "Peter Maselkowski",
-			"email": "pmaselkowski@gmail.com",
-			"homepage": "https://maslosoft.com/"
-		}
-	],
+	"authors": [{
+		"name": "Robert Pitt",
+		"email": "robert@biggerplate.com",
+		"homepage": "https://biggerplate.com/"
+	}],
 	"keywords": [
 		"oauth",
 		"oauth2",
 		"client",
 		"authorization",
 		"authentication",
-		"twitter"
+		"mindmeister"
 	],
 	"require": {
 		"league/oauth2-client": "^1.0"
